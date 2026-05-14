@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fake News Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <div class="container">
+
+    <header>
+      <h1>📰 Fake News Detector</h1>
+      <p>Paste a news article to check if it's real or fake</p>
+    </header>
+
+    <!-- INPUT CARD -->
+    <div class="card">
+      <h2>Enter News Article</h2>
+      <textarea id="newsText" rows="8"
+        placeholder="Paste the full news article text here..."></textarea>
+      <div class="btn-row">
+        <button onclick="predict()">Check News</button>
+        <button class="btn-clear" onclick="clearAll()">Clear</button>
+      </div>
+    </div>
+
+    <!-- RESULT CARD -->
+    <div class="card result-card" id="resultCard" style="display:none">
+      <h2>Result</h2>
+
+      <div class="result-badge" id="resultBadge"></div>
+
+      <div class="confidence-section">
+        <p class="confidence-label">Confidence: <strong id="confidence"></strong></p>
+      </div>
+
+      <div class="prob-bars">
+        <div class="bar-row">
+          <span>Real</span>
+          <div class="bar-track">
+            <div class="bar real-bar" id="realBar"></div>
+          </div>
+          <span id="realVal">0%</span>
+        </div>
+        <div class="bar-row">
+          <span>Fake</span>
+          <div class="bar-track">
+            <div class="bar fake-bar" id="fakeBar"></div>
+          </div>
+          <span id="fakeVal">0%</span>
+        </div>
+      </div>
+
+      <p class="disclaimer">
+        ⚠️ This tool is for educational purposes only.
+        Always verify news from trusted sources.
+      </p>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="card">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">1</span>
+          <p>Paste any news article text in the box above</p>
+        </div>
+        <div class="step">
+          <span class="step-num">2</span>
+          <p>The ML model analyzes patterns in the text</p>
+        </div>
+        <div class="step">
+          <span class="step-num">3</span>
+          <p>Get a prediction with confidence percentage</p>
+        </div>
+      </div>
+      <p class="model-info">
+        Model trained on 44,000+ news articles using
+        TF-IDF vectorization and Logistic Regression.
+        Accuracy: <strong>98.64%</strong>
+      </p>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
