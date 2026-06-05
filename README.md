@@ -1,24 +1,22 @@
-# Fake News Detector 📰
+# Fake News Detector
 
-ML-powered fake news detection using Logistic Regression and TF-IDF.
-
-## Features
-- Paste any news article
-- Get Real or Fake prediction
-- Shows confidence percentage
-- Visual probability bars
+## Overview
+Built this to learn how machine learning models can be applied to 
+text classification problems using real-world data.
 
 ## Tech Stack
-- Backend: Flask, Python
-- ML: Scikit-learn, TF-IDF, Logistic Regression
-- Dataset: 44,000+ news articles
-- Accuracy: 98.64%
+- Python, Flask
+- scikit-learn
+- HTML, CSS, JavaScript
 
-## Setup & Run
+## Features
+- Paste any news article text
+- Returns real or fake prediction with confidence score
+
+## Run Locally
+```bash
 pip install -r requirements.txt
-python model/train.py
 python app.py
-
-## Author
-Maria Amir — Information Engineering Technology
-University of Lahore
+```
+## instruction
+It works with csv dataset fake and true news questions. dataset will be inside model.
